@@ -1,0 +1,12 @@
+﻿<Application x:Class="WpfResApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfResApp"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             StartupUri="ImageWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <sys:String x:Key="aStr">来自程序文件的内容</sys:String>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

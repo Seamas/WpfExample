@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="WpfApp.ValidateControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <TextBox x:Name="txb" Margin="5">
+            <TextBox.Text>
+                <Binding Path="Value" UpdateSourceTrigger="PropertyChanged" ElementName="slider1" Mode="TwoWay" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <local:RangeValidationRule ValidatesOnTargetUpdated="True"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            
+        </TextBox>
+        <Slider x:Name="slider1" Minimum="0" Maximum="200" Margin="5"/>
+    </StackPanel>
+</UserControl>

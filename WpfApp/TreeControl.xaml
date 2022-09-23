@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="WpfApp.TreeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Control.Resources>
+        <XmlDataProvider x:Key="xdp" XPath="FileSystem/Folder">
+            <x:XData>
+                <FileSystem xmlns="">
+                    <Folder Name="Books">
+                        <Folder Name ="Programming">
+                            <Folder Name="Windows">
+                                <Folder Name="WPF"/>
+                                <Folder Name="MFC"/>
+                                <Folder Name="WinForm"/>
+                            </Folder>
+                        </Folder>
+                        <Folder Name="Tools">
+                            <Folder Name="Development"/>
+                            <Folder Name="Designment"/>
+                            <Folder Name="Players"/>
+                        </Folder>
+                    </Folder>
+                </FileSystem>
+            </x:XData>
+        </XmlDataProvider>
+    </Control.Resources>
+
+    <Grid Margin="10">
+        <TreeView ItemsSource="{Binding Source={StaticResource xdp}}">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding XPath=Folder}">
+                    <TextBlock Text="{Binding XPath=@Name}"/>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+    </Grid>
+</UserControl>
